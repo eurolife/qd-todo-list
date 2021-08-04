@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-size: 18px;
+}
+header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  &.bg-dark {
+    background-image: url(/images/bg-mobile-dark.jpg);
+  }
+  &.bg-light {
+    background-image: url(/images/bg-mobile-light.jpg);
+  }
+}
