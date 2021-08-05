@@ -72,8 +72,8 @@ There is also a `style-guide.md` file containing the information you'll need, su
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-- [React Redux] (https://react-redux.js.org/) - For state management
-- [Immerjs] (https://immerjs.github.io/immer/) - To handle immutability
+- [React Redux](https://react-redux.js.org/) - For state management
+- [Immerjs](https://immerjs.github.io/immer/) - To handle immutability
 - [TailwindCSS](https://tailwindcss.com/) - For styles
 - [Cypress][https://www.cypress.io/] - For tests
 
