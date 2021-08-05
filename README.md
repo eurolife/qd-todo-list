@@ -1,7 +1,5 @@
 # Frontend Exercise - Todo app
 
-![Design preview for the Todo app coding exercise](./design/desktop-preview.jpg)
-
 
 ## Table of contents
 
