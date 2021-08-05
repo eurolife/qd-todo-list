@@ -64,7 +64,7 @@ const Home = ({todos}) => {
 
           {/* filters/clear */}
           <li className="p-4 flex items-center justify-between">
-            <span className="text-gray">{notDone.length} items left</span>
+            <span className="text-gray"><span data-cy="numberActive">{notDone.length}</span> items left</span>
             <div className="hidden md:block">
               <Filters filterType={filterType} handleFilter={handleFilter} />
             </div>

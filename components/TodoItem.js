@@ -14,10 +14,10 @@ const TodoItem = ({item}) => {
   return (
     <li className="py-2 md:py-4 flex items-center justify-between border-b border-vlgrayblue dark:border-vdgrayblue">
       <div className="flex items-center px-4 py-2">
-        <CheckButton item={item} text="Some other stuff" />
+        <CheckButton item={item} />
         <span className={textClasses}>{description}</span>
       </div>
-      <button className="pr-4" onClick={handleClick}>
+      <button className="pr-4" data-cy="deleteButton" onClick={handleClick}>
         <img src="images/icon-cross.svg" alt="remove" />
       </button>
     </li>

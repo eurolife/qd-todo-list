@@ -5,8 +5,8 @@ const Filters = ({handleFilter, filterType}) => {
   return (
     <div className="bg-white dark:bg-vddesblue flex justify-center rounded-md text-gray dark:text-dgrayblue">
       <button onClick={() => handleFilter('all')} className={buttonClasses('all')}>All</button>
-      <button onClick={() => handleFilter('active')} className={buttonClasses('active')}>Active</button>
-      <button onClick={() => handleFilter('completed')} className={buttonClasses('completed')}>Completed</button>
+      <button data-cy="showActive" onClick={() => handleFilter('active')} className={buttonClasses('active')}>Active</button>
+      <button data-cy="showCompleted" onClick={() => handleFilter('completed')} className={buttonClasses('completed')}>Completed</button>
     </div>
   )
 }
