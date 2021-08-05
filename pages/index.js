@@ -68,7 +68,7 @@ const Home = ({todos}) => {
             <div className="hidden md:block">
               <Filters filterType={filterType} handleFilter={handleFilter} />
             </div>
-            <button onClick={handleRemoveDone} className="text-gray hover:text-vdgrayblue">Clear Completed</button>
+            <button onClick={handleRemoveDone} className="text-gray hover:text-vdgrayblue dark:hover:text-lgrayblue">Clear Completed</button>
           </li>
         </ul>
         <div className="block md:hidden mt-6">

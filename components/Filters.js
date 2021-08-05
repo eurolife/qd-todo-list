@@ -1,6 +1,6 @@
 const Filters = ({handleFilter, filterType}) => {
   const buttonClasses = (type) => {
-    return type === filterType ? 'p-4 font-bold text-brightblue' : 'p-4 font-bold';
+    return type === filterType ? 'p-4 font-bold text-brightblue' : 'p-4 font-bold hover:text-vdgrayblue dark:hover:text-lgrayblue';
   }
   return (
     <div className="bg-white dark:bg-vddesblue flex justify-center rounded-md text-gray dark:text-dgrayblue">
