@@ -4,14 +4,41 @@
 
 body {
   font-size: 18px;
-}
-header {
-  background-size: cover;
-  background-repeat: no-repeat;
-  &.bg-dark {
-    background-image: url(/images/bg-mobile-dark.jpg);
-  }
-  &.bg-light {
+  height: 100%;
+  @apply bg-vlgray;
+  
+  header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
     background-image: url(/images/bg-mobile-light.jpg);
+    img {
+      width: 25px;
+    }
+    
+  }
+  main {
+    input {
+      &::placeholder {
+        @apply text-sm;
+      }
+    }
+  }
+  // Dark mode
+  &.dark {
+    @apply bg-vdblue;
+    header {
+      background-image: url(/images/bg-mobile-dark.jpg);
+    }
+    main {
+      input {
+        &::placeholder {
+          @apply text-dgrayblue;
+        }
+      }
+    }
   }
 }
+
+  
+

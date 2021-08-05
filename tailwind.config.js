@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**.*.js'],
+  purge: ['./pages/**/*.js', './components/**/*.js'],
   mode: 'jit',
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -7,9 +7,11 @@ module.exports = {
       // common
       white: '#FFF',
       black: '#000',
+      gray: '#999',
       // primary
       brightblue: 'hsl(220, 98%, 61%)',
-      checkbackground: 'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
+      bgfrom: 'hsl(192, 100%, 67%)',
+      bgto: 'hsl(280, 87%, 65%)',
       // light
       vlgray: 'hsl(0, 0%, 98%)',
       vlgrayblue: 'hsl(236, 33%, 92%)',
@@ -29,10 +31,15 @@ module.exports = {
       fontFamily: {
         'josefine': ['"Josefin Sans"']
       },
+      letterSpacing: {
+        widest: '.3em'
+      }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      display: ['dark']
+    },
   },
   plugins: [],
 }
