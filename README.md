@@ -15,7 +15,6 @@
   - [Useful resources](#useful-resources)
 - [Submitting your solution](#submitting-your-solution)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Welcome! 👋
 
@@ -61,14 +60,6 @@ There is also a `style-guide.md` file containing the information you'll need, su
 
 ![](./screenshot.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 
 
 ## My process
@@ -76,33 +67,23 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - Flexbox
-- CSS Grid
+- SCSS
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [React Redux] (https://react-redux.js.org/) - For state management
+- [Immerjs] (https://immerjs.github.io/immer/) - To handle immutability
+- [TailwindCSS](https://tailwindcss.com/) - For styles
+- [Cypress][https://www.cypress.io/] - For tests
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Adding Cypress to your Next.js App](https://dev.to/ashconnolly/how-to-quickly-add-cypress-to-your-next-js-app-2oc6) - This article explained a quick and easy way to add Cypress to an existing Next.js app.
+- [TailwindCSS Dark Mode](https://tailwindcss.com/docs/dark-mode) - One of the many things I love about TailwindCSS is that it now supports dark mode very easily. This page explains the different ways you can use TailwindCSS to handle light vs. dark mode.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-
-## Submitting your solution
-
-When you reach a stage you’re happy with, you should send over a .zip file of your project, including any & all source files, tests, a readme file etc. (happy to be added to private github repositories too).
-
-If you do submit it without doing everything you'd like to do, then add a TODO file in root with the things you'd like to do and document any assumptions made during the implementation.
-
-
-**Have fun building!** 🚀
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -120,5 +101,9 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+Running Cypress tests:
+```bash
+npx cypress open
 
 
