@@ -8,6 +8,7 @@ module.exports = {
       white: '#FFF',
       black: '#000',
       gray: '#999',
+      red: '#ff0000',
       // primary
       brightblue: 'hsl(220, 98%, 61%)',
       bgfrom: 'hsl(192, 100%, 67%)',

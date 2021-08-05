@@ -1,13 +1,47 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
+import todosNotDone from '../helpers/todosNotDone';
 import Filters from '../components/Filters';
-import cn from 'classnames'
 import TodoItem from '../components/TodoItem';
 import useChooseMode from '../hooks/useChooseMode';
+import useFilterTodos from '../hooks/useFilterTodos';
+import { useDispatch } from 'react-redux';
+import { removeCompleted, createTodo } from '../actions';
+import { connect } from 'react-redux';
+import Header from '../components/Header';
+import AddNewInput from '../components/AddNewInput';
 
-export default function Home() {
+
+const Home = ({todos}) => {
+  const [error, setError] = useState(null);
+  const [filterType, setFilterType] = useState('all')
+
+  const dispatch = useDispatch();
   const [setTheme, chooseTheme] = useChooseMode();
+  const [filteredTodos, filter] = useFilterTodos(filterType);
+  const notDone = todosNotDone()
+
+  const handleRemoveDone = () => {
+    dispatch(removeCompleted())
+  }
+
+  const handleCreateNew = (e, text) => {
+    e.preventDefault();
+    if(text.trim().length === 0) {
+      setError('You must enter some text.');
+      return;
+    }
+    setError(null);
+    dispatch(createTodo(text));
+  }
+  const handleFilter = (type) => {
+    setFilterType(type);
+    filter(type)
+  }
+  useEffect(() => {
+    handleFilter(filterType)
+  },[todos])
+
   useEffect(() => {
     setTheme();
   },[])
@@ -17,41 +51,28 @@ export default function Home() {
       <Head>
         <title>TODO List</title>
       </Head>
-      <header className="pt-12 px-6">
-        <div className="flex justify-between items-start max-w-xl mx-auto">
-          <h1 className="text-3xl text-white tracking-widest">TODO</h1>
-          <div className="mode">
-            <button className="block dark:hidden" onClick={() => chooseTheme('dark')}><img src="images/icon-moon.svg" alt="Dark mode" /></button>
-            <button className="hidden dark:block" onClick={() => chooseTheme('light')}><img src="images/icon-sun.svg" alt="Light mode" /></button>
-          </div>
-        </div>
-        
-      </header>
+
+      <Header chooseTheme={chooseTheme} />
 
       <main className="px-6 -mt-24 text-sm md:text-base max-w-xl mx-auto">
-        <div className="p-4 rounded-md bg-white dark:bg-vddesblue flex">
-          <button className="mr-4 bg-vlgrayblue dark:bg-vdgrayblue hover:bg-gradient-to-r hover:from-bgfrom hover:to-bgto h-6 w-6 flex justify-center items-center rounded-full flex-shrink-0">
-            <div className="h-5 w-5 rounded-full bg-white dark:bg-vddesblue" />
-          </button>
-          <input className="w-full text-vdgrayblue dark:bg-vddesblue" type="text" placeholder="Create a new todo..." />
-        </div>
-      
+        <AddNewInput handleCreateNew={handleCreateNew} error={error} />
 
         <ul className="mt-6 bg-white dark:bg-vddesblue rounded-md w-full shadow-lg">
-          <TodoItem done text="Some Stuff" />
-          <TodoItem done={false} text="Some other stuff" />
+          {filteredTodos?.map((item) => (
+            <TodoItem key={item.id} item={item} />
+          ))}
+
           {/* filters/clear */}
           <li className="p-4 flex items-center justify-between">
-            <span className="text-gray">5 items left</span>
-            {/* Filters */}
+            <span className="text-gray">{notDone.length} items left</span>
             <div className="hidden md:block">
-              <Filters />
+              <Filters filterType={filterType} handleFilter={handleFilter} />
             </div>
-            <button className="text-gray hover:text-vdgrayblue">Clear Completed</button>
+            <button onClick={handleRemoveDone} className="text-gray hover:text-vdgrayblue">Clear Completed</button>
           </li>
         </ul>
         <div className="block md:hidden mt-6">
-          <Filters />
+          <Filters filterType={filterType} handleFilter={handleFilter} />
         </div>
       </main>
       
@@ -63,3 +84,9 @@ export default function Home() {
 
   )
 }
+
+const mapStateToProps = (state) => {
+  return { todos: state.todos }
+}
+
+export default connect(mapStateToProps, null)(Home);
